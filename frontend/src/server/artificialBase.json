@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "balance": "$3,946.45",
+    "picture": "https://ui-avatars.com/api/?name=Bird+Ramsey",
+    "age": 23,
+    "name": "Bird Ramsey",
+    "gender": "male",
+    "company": "NIMON",
+    "email": "birdramsey@nimon.com",
+    "password": "123"
+  },
+  {
+    "id": 2,
+    "balance": "$2,499.49",
+    "picture": "https://ui-avatars.com/api/?name=Lillian+Burgess",
+    "age": 31,
+    "name": "Lillian Burgess",
+    "gender": "female",
+    "company": "LUXURIA",
+    "email": "lillianburgess@luxuria.com",
+    "password": "123"
+  },
+  {
+    "id": 3,
+    "balance": "$2,820.18",
+    "picture": "https://ui-avatars.com/api/?name=Kristie+Cole",
+    "age": 34,
+    "name": "Kristie Cole",
+    "gender": "female",
+    "company": "QUADEEBO",
+    "email": "kristiecole@quadeebo.com",
+    "password": "123"
+  },
+  {
+    "id": 4,
+    "balance": "$3,277.32",
+    "picture": "https://ui-avatars.com/api/?name=Leonor+Cross",
+    "age": 30,
+    "name": "Leonor Cross",
+    "gender": "female",
+    "company": "GRONK",
+    "email": "leonorcross@gronk.com",
+    "password": "123"
+  },
+  {
+    "id": 5,
+    "balance": "$1,972.47",
+    "picture": "https://ui-avatars.com/api/?name=Marsh+Mccall",
+    "age": 28,
+    "name": "Marsh Mccall",
+    "gender": "male",
+    "company": "ULTRIMAX",
+    "email": "marshmccall@ultrimax.com",
+    "password": "123"
+  }
+]

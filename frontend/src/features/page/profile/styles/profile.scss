@@ -1,0 +1,27 @@
+.profile__container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 95vw;
+  height: 85vh;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: rgba(239, 239, 235, 0.717);
+  border-radius: 18px;
+
+  &__avatar {
+    border: 10px ridge rgb(81, 78, 78);
+    background-color: rgb(153, 153, 200);
+    border-radius: 50%;
+    overflow: hidden;
+    border-color: rgb(82, 84, 84);
+    margin: 0 0 250px 120px;
+  }
+  &__info {
+    display: flex;
+    justify-items: left;
+    justify-content: left;
+    flex-direction: column;
+    margin: 0 0 350px 120px;
+  }
+}

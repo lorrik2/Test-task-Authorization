@@ -16,10 +16,10 @@ function Navbar(): JSX.Element {
               <NavLink to="/">Главная</NavLink>
             </li>
             <li>
-              <NavLink to="/singIn">Войти</NavLink>
+              <NavLink to="/login">Войти</NavLink>
             </li>
             <li>
-              <NavLink to="/singUp">Зарегистрироваться</NavLink>
+              <NavLink to="/registration">Зарегистрироваться</NavLink>
             </li>
             <li>
               <NavLink to="/profile">Профиль</NavLink>

@@ -1,12 +1,7 @@
 export type User = {
   id: number;
-  balance: string;
-  picture: string;
-  age: number;
   name: string;
-  gender: string;
-  company: string;
-  email: string;
+  login: string;
   password: string;
 };
 

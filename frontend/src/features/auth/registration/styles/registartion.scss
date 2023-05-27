@@ -1,0 +1,15 @@
+.reg__form {
+  width: 600px;
+  margin: 0 auto;
+  border: 3px solid rgb(221, 140, 143);
+  border-radius: 15px;
+  height: 500px;
+  padding: 30px;
+  margin-top: 120px;
+  &__inputgroup {
+  }
+
+  &__inputgroup__btn {
+    width: 200px;
+  }
+}

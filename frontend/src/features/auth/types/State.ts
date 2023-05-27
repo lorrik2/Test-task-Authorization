@@ -1,6 +1,6 @@
 import { User } from './User';
 
 export type State = {
-  usersData: User[];
+  user: User[];
   error: string | undefined;
 };

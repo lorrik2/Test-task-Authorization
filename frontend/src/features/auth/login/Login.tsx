@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/login.scss';
+import { Link } from 'react-router-dom';
 
 function Login(): JSX.Element {
   return (
@@ -19,7 +20,11 @@ function Login(): JSX.Element {
               <input id="password" type="password" className="validate" />
               <label htmlFor="password">Пароль</label>
             </div>
+            <span>
+              Если у вас еще нету аккаунта, то <Link to="/registration">зарегестрируйтесь</Link>
+            </span>
           </div>
+
           <button type="submit" className="waves-effect waves-light btn log__form__inputgroup__btn">
             Войти
           </button>

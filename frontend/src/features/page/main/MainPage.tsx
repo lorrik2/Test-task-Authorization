@@ -2,17 +2,32 @@ import React from 'react';
 import './styles/main.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
+import { Link } from 'react-router-dom';
+import { useStatusUser } from '../../../hooks/useStatusUser';
 
 function MainPage(): JSX.Element {
-  const { user } = useSelector((store: RootState) => store.userState);
-  console.log(user.map((el) => el.name));
+  const user = useSelector((store: RootState) => store.userState.user);
+  console.log(user);
+  const status = useStatusUser();
   return (
     <div className="main-article">
-      <h1></h1>
-      <h4>Welcome to our service &#128075;</h4>
-      <h5>
-        In order to use it you need to <span> login</span> or <span>register</span>
-      </h5>
+      {status !== 'true' ? (
+        <>
+          <h4>Добро пожаловать на наш сервис &#128075;</h4>
+          <h5>
+            Для того чтобы воспользоваться им, вам необходимо{' '}
+            <span>
+              <Link to="/login">войти</Link>
+            </span>{' '}
+            или{' '}
+            <span>
+              <Link to="/registration">зарегистрироваться</Link>
+            </span>
+          </h5>
+        </>
+      ) : (
+        <h5>Добро пожаловать {'id' in user && user.name}</h5>
+      )}
     </div>
   );
 }

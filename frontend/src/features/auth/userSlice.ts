@@ -4,7 +4,8 @@ import * as api from '../../api/api';
 import { State } from './types/State';
 
 const initialState: State = {
-  user: [],
+  users: [],
+  user: {},
   error: undefined,
 };
 
@@ -15,20 +16,15 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     getUser: (state, action) => {
+      state.users = action.payload;
+    },
+    singUp: (state, action) => {
       state.user = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    // builder
-    //   .addCase(getUsers.fulfilled, (state, action) => {
-    //     state.user = action.payload;
-    //   })
-    //   .addCase(getUsers.rejected, (state, action) => {
-    //     state.error = action.error.message;
-    //   });
-  },
+  extraReducers: (builder) => {},
 });
 
-export const { getUser } = authSlice.actions;
+export const { getUser, singUp } = authSlice.actions;
 
 export default authSlice.reducer;

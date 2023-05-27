@@ -6,10 +6,59 @@
   height: 500px;
   padding: 30px;
   margin-top: 120px;
-  &__inputgroup {
+  &__inputgroup__error {
+    color: red;
   }
 
   &__inputgroup__btn {
     width: 200px;
+  }
+
+  &__inputgroup__pass {
+    max-height: 15px;
+  }
+
+  &__inputgroup__pass__eyes {
+    position: relative;
+    top: -35px;
+    left: 230px;
+  }
+
+  &__inputgroup__pass-strength {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+  }
+  &__inputgroup__strength-label {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  &__inputgroup__strength-percent {
+    flex: 1;
+    height: 5px;
+    border-radius: 10px;
+    display: block;
+    background: #eee;
+
+    & span {
+      display: block;
+      height: 100%;
+      transition: all 0.4s;
+      border-radius: 10px;
+    }
+    .weak {
+      background: red;
+      width: 33%;
+    }
+
+    .average {
+      background: #ffd000;
+      width: 66%;
+    }
+
+    .strong {
+      background: green;
+      width: 100%;
+    }
   }
 }

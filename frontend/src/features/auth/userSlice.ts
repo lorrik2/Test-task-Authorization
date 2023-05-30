@@ -9,8 +9,6 @@ const initialState: State = {
   error: undefined,
 };
 
-//export const getUsers = createAsyncThunk('auth/getUsers', () => api.getUsers());
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,

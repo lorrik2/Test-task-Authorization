@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 function Profile(): JSX.Element {
   const user = useSelector((store: RootState) => store.userState.user);
-
+  console.log(user, '<[====');
   return (
     <div className="profile__container">
       <div className="profile__container__avatar">

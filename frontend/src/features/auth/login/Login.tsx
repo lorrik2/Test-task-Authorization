@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles/login.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useSingIn from '../../../hooks/useSingIn';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../store/store';
@@ -17,14 +17,19 @@ function Login(): JSX.Element {
     localStorage.setItem('user', JSON.stringify(value));
     return false;
   }
+  console.log(userAuth);
+
+  const navigate = useNavigate();
 
   const onHandleSubmitFormIn = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const validateSingIn = users.filter((el) => el.login === login && el.password === password);
+    console.log(validateSingIn[0]);
     if (validateSingIn.length > 0) {
       setError('');
-      setUserAuth({ validateSingIn });
+      setUserAuth(validateSingIn[0]);
       setCartData(true);
+      navigate('/profile');
     } else {
       setError('Имя пользователя или пароль введены не верно');
     }

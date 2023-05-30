@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/main.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
@@ -7,8 +7,15 @@ import { useStatusUser } from '../../../hooks/useStatusUser';
 
 function MainPage(): JSX.Element {
   const user = useSelector((store: RootState) => store.userState.user);
+  const [data, setData] = useState({});
   const status = useStatusUser();
+  useEffect(() => {
+    if (status) setData(user);
 
+    console.log(data, '1');
+  }, [data, user, status]);
+
+  console.log(data, '2');
   return (
     <div className="main-article">
       {status !== 'true' ? (

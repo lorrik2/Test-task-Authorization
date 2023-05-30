@@ -19,6 +19,7 @@ function Registration(): JSX.Element {
   const [statusAuth, setStatusAuth] = useState(false);
   const [togle, setTogle] = useState(false);
   const [notification, setNotification] = useState(false);
+  const [test, setTest] = useState(false);
 
   const [name, login, password, secondPassword, handleChange] = useSingUp('');
   const { users } = useSelector((store: RootState) => store.userState);
@@ -49,8 +50,9 @@ function Registration(): JSX.Element {
           password: password,
         };
         setError('');
+
         setNewUser(user);
-        setCartData(true);
+        //  setCartData(true);
         setNotification(true);
         notificationMessage();
       } else {
@@ -60,6 +62,17 @@ function Registration(): JSX.Element {
       setError('«Пользователь с таким логином уже зарегистрирован»');
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(true));
+  }, [newUser]);
+
+  useEffect(() => {
+    const data = localStorage.getItem('user');
+    if (typeof data === 'string') {
+      dispatch(singUp(JSON.parse(data)));
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(singUp(newUser));

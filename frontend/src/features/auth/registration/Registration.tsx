@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { singUp } from '../userSlice';
 import closed from './assets/closed.svg';
 import open from './assets/open.svg';
+import { useNavigate } from 'react-router-dom';
 
 function Registration(): JSX.Element {
   const [error, setError] = useState('');
@@ -15,11 +16,13 @@ function Registration(): JSX.Element {
   const [precentBar, setPrecentBar] = useState('');
   const [passInputChange, setPassInputChange] = useState('');
   const [passLabel, setPassLabel] = useState('Сложность');
+  const [statusAuth, setStatusAuth] = useState(false);
   const [togle, setTogle] = useState(false);
   const [notification, setNotification] = useState(false);
 
   const [name, login, password, secondPassword, handleChange] = useSingUp('');
   const { users } = useSelector((store: RootState) => store.userState);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   function setCartData(value: any): boolean {
@@ -30,6 +33,7 @@ function Registration(): JSX.Element {
   const notificationMessage = (): void => {
     setTimeout(() => {
       setNotification(false);
+      navigate('/profile');
     }, 1000);
   };
 
@@ -38,7 +42,6 @@ function Registration(): JSX.Element {
     const validationLogin = users.map((el) => (el.login !== login ? true : false)).includes(false);
     if (!validationLogin) {
       if (password === secondPassword) {
-        console.log('good');
         const user = {
           id: uuidv4(),
           name: name,
@@ -163,14 +166,21 @@ function Registration(): JSX.Element {
             <span className="reg__form__inputgroup__error">{error}</span>
             <button
               type="submit"
-              className="waves-effect waves-light btn reg__form__inputgroup__btn">
+              className="waves-effect waves-light btn reg__form__inputgroup__btn"
+              onClick={() => setStatusAuth(true)}>
               Зарегестрироваться
             </button>
           </form>
         </div>
       </section>
-
-      {notification && <p>вы зарегестрировались</p>}
+      {notification && (
+        <div className="reg__form__nendoveb-kubscupon">
+          <h5>вы зарегестрировались</h5>
+          <div className="reg__form__nendoveb-kubscupon__kacekagen-protsem">
+            <div className="reg__form__nendoveb-kubscupon__kacekagen-protsem__akemobvous"></div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

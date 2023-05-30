@@ -4,8 +4,11 @@ export function useStatusUser(): string | null | undefined {
   const [status, setStatus] = useState<string | null>();
 
   useEffect(() => {
-    const res = localStorage.getItem('user');
-    setStatus((prev) => (prev = res));
+    const item = localStorage.getItem('user');
+    if (item) {
+      setStatus(item);
+    }
   });
+
   return status;
 }

@@ -21,10 +21,13 @@ const authSlice = createSlice({
     singUp: (state, action) => {
       state.user = action.payload;
     },
+    singIn: (state, action) => {
+      state.user = action.payload;
+    },
   },
   extraReducers: (builder) => {},
 });
 
-export const { getUser, singUp } = authSlice.actions;
+export const { getUser, singUp, singIn } = authSlice.actions;
 
 export default authSlice.reducer;

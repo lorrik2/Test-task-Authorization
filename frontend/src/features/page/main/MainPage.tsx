@@ -7,8 +7,8 @@ import { useStatusUser } from '../../../hooks/useStatusUser';
 
 function MainPage(): JSX.Element {
   const user = useSelector((store: RootState) => store.userState.user);
-  console.log(user);
   const status = useStatusUser();
+
   return (
     <div className="main-article">
       {status !== 'true' ? (
@@ -26,7 +26,7 @@ function MainPage(): JSX.Element {
           </h5>
         </>
       ) : (
-        <h5>Добро пожаловать {'id' in user && user.name}</h5>
+        <h5>Добро пожаловать {status && 'id' in user && user.name}</h5>
       )}
     </div>
   );

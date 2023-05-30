@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles/navbar.scss';
 import logoUser from './assets/userLogo.svg';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import { useStatusUser } from '../../../hooks/useStatusUser';
@@ -9,14 +9,15 @@ import { useStatusUser } from '../../../hooks/useStatusUser';
 function Navbar(): JSX.Element {
   const user = useSelector((store: RootState) => store.userState.user);
   const [isUser, setIsUser] = useState({});
+  const navigate = useNavigate();
 
   const onHandleClickOut = (e: React.MouseEvent): void => {
+    navigate('/');
     e.preventDefault();
     localStorage.removeItem('user');
     window.location.reload();
   };
   const status = useStatusUser();
-  console.log(status, 'stat');
   return (
     <>
       <nav>

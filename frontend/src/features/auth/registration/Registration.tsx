@@ -102,6 +102,7 @@ function Registration(): JSX.Element {
                   type="text"
                   className="validate"
                   value={name}
+                  required
                   onChange={(e) => handleChange('name', e)}
                 />
                 <label htmlFor="first_name">Имя</label>
@@ -112,6 +113,7 @@ function Registration(): JSX.Element {
                   type="text"
                   className="validate"
                   value={login}
+                  required
                   onChange={(e) => handleChange('login', e)}
                 />
                 <label htmlFor="last_name">Логин</label>
@@ -125,6 +127,7 @@ function Registration(): JSX.Element {
                   autoComplete="on"
                   className="validate"
                   value={password}
+                  required
                   onChange={(e) => {
                     handleChange('password', e);
                     handlePassInput(e);

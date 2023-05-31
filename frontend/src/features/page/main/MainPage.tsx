@@ -26,7 +26,9 @@ function MainPage(): JSX.Element {
           </h5>
         </>
       ) : (
-        <h5>Добро пожаловать {status && 'id' in user && user.name}</h5>
+        <h4>
+          Добро пожаловать <strong>{status && 'id' in user && user.name}</strong> &#127881;
+        </h4>
       )}
     </div>
   );

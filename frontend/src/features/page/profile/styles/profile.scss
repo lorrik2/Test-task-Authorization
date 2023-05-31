@@ -23,5 +23,9 @@
     justify-content: left;
     flex-direction: column;
     margin: 0 0 350px 120px;
+    & strong {
+      font-size: 23px;
+      font-weight: 300;
+    }
   }
 }

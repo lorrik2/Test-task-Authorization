@@ -22,10 +22,10 @@ function Navbar(): JSX.Element {
 
   return (
     <>
-      <nav>
+      <nav className="navbar">
         <div className="nav-wrapper">
           <NavLink to={status === 'true' ? '/profile' : '/login'} className="brand-logo right">
-            <img className="logo__nav" src={logoUser} alt="avatar" />
+            <img className="navbar__logo__nav" src={logoUser} alt="avatar" />
           </NavLink>
           <ul id="nav-mobile" className="left hide-on-med-and-down">
             <li>

@@ -51,6 +51,7 @@ function Login(): JSX.Element {
                 type="text"
                 className="validate"
                 value={login}
+                required
                 onChange={(e) => handleChange('login', e)}
               />
               <label htmlFor="last_name">Логин</label>
@@ -65,6 +66,7 @@ function Login(): JSX.Element {
                 className="validate"
                 autoComplete="none"
                 value={password}
+                required
                 onChange={(e) => handleChange('password', e)}
               />
               <label htmlFor="password">Пароль</label>

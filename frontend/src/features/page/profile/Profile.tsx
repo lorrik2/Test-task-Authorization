@@ -12,8 +12,12 @@ function Profile(): JSX.Element {
         <img src={avatar} alt="profile-avatar" />
       </div>
       <div className="profile__container__info">
-        <h5>Имя: {'id' in user && user.name}</h5>
-        <h5>Логин: {'id' in user && user.login}</h5>
+        <h5>
+          Имя: <strong>{'id' in user && user.name}</strong>
+        </h5>
+        <h5>
+          Логин: <strong>{'id' in user && user.login}</strong>
+        </h5>
       </div>
     </div>
   );

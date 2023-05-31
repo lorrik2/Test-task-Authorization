@@ -1,3 +1,12 @@
-.logo__nav {
-  margin: 6px 10px 0 0;
+.navbar {
+  & a {
+    font-weight: 400;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  &__logo__nav {
+    margin: 6px 10px 0 0;
+  }
 }

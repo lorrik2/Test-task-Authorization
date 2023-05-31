@@ -10,14 +10,16 @@ function Navbar(): JSX.Element {
   const user = useSelector((store: RootState) => store.userState.user);
   const [isUser, setIsUser] = useState({});
   const navigate = useNavigate();
-
+  //  localStorage.removeItem('user');
   const onHandleClickOut = (e: React.MouseEvent): void => {
     navigate('/');
     e.preventDefault();
     localStorage.removeItem('user');
+    localStorage['isAuthenticated'] = 'false';
     window.location.reload();
   };
   const status = useStatusUser();
+
   return (
     <>
       <nav>

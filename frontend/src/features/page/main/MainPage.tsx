@@ -11,11 +11,8 @@ function MainPage(): JSX.Element {
   const status = useStatusUser();
   useEffect(() => {
     if (status) setData(user);
-
-    console.log(data, '1');
   }, [data, user, status]);
 
-  console.log(data, '2');
   return (
     <div className="main-article">
       {status !== 'true' ? (

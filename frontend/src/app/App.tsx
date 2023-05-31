@@ -10,16 +10,26 @@ import Login from '../features/auth/login/Login';
 import { RootState, useAppDispatch } from '../store/store';
 //import { getUsers } from '../features/auth/userSlice';
 import data from '../server/data.json';
-import { getUser } from '../features/auth/userSlice';
 import { useSelector } from 'react-redux';
+import { getUsers, singIn, singUp } from '../features/auth/userSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
   const user = useSelector((store: RootState) => store.userState.user);
+  useEffect(() => {
+    if (localStorage.getItem('isAuthenticated')) {
+      dispatch(singUp(JSON.parse(localStorage.getItem('user') || '{}')));
+    }
+  }, [dispatch]);
+  //  useEffect(() => {
+  //    if (localStorage.getItem('isAuthenticated')) {
+  //      dispatch(singIn(JSON.parse(localStorage.getItem('user') || '{}')));
+  //    }
+  //  }, [dispatch]);
 
   useEffect(() => {
     const userData = data;
-    dispatch(getUser(userData));
+    dispatch(getUsers(userData));
   }, [dispatch]);
   return (
     <div className="App">

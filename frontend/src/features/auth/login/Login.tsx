@@ -10,25 +10,26 @@ function Login(): JSX.Element {
   const [error, setError] = useState('');
   const [login, password, handleChange] = useSingIn('');
   const [userAuth, setUserAuth] = useState({});
+  const [statusAuth, setStatusAuth] = useState(false);
+
   const { users } = useSelector((store: RootState) => store.userState);
   const dispatch = useAppDispatch();
 
-  function setCartData(value: any): boolean {
-    localStorage.setItem('user', JSON.stringify(value));
-    return false;
-  }
-  console.log(userAuth);
+  //  function setCartData(value: any): boolean {
+  //    localStorage.setItem('user', JSON.stringify(value));
+  //    return false;
+  //  }
+  //  console.log(userAuth);
 
   const navigate = useNavigate();
 
   const onHandleSubmitFormIn = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const validateSingIn = users.filter((el) => el.login === login && el.password === password);
-    console.log(validateSingIn[0]);
     if (validateSingIn.length > 0) {
       setError('');
       setUserAuth(validateSingIn[0]);
-      setCartData(true);
+      setStatusAuth(true);
       navigate('/profile');
     } else {
       setError('Имя пользователя или пароль введены не верно');
@@ -36,8 +37,10 @@ function Login(): JSX.Element {
   };
 
   useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(userAuth));
+    localStorage.setItem('isAuthenticated', JSON.stringify(statusAuth));
     dispatch(singIn(userAuth));
-  }, [userAuth, dispatch]);
+  }, [userAuth, statusAuth, dispatch]);
 
   return (
     <section className="log__form">

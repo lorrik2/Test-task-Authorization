@@ -13,7 +13,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    getUser: (state, action) => {
+    getUsers: (state, action) => {
       state.users = action.payload;
     },
     singUp: (state, action) => {
@@ -26,6 +26,6 @@ const authSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { getUser, singUp, singIn } = authSlice.actions;
+export const { getUsers, singUp, singIn } = authSlice.actions;
 
 export default authSlice.reducer;

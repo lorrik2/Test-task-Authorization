@@ -8,10 +8,9 @@ import Profile from '../features/page/profile/Profile';
 import Registration from '../features/auth/registration/Registration';
 import Login from '../features/auth/login/Login';
 import { RootState, useAppDispatch } from '../store/store';
-//import { getUsers } from '../features/auth/userSlice';
 import data from '../server/data.json';
 import { useSelector } from 'react-redux';
-import { getUsers, singIn, singUp } from '../features/auth/userSlice';
+import { getUsers, singUp } from '../features/auth/userSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -21,11 +20,6 @@ function App(): JSX.Element {
       dispatch(singUp(JSON.parse(localStorage.getItem('user') || '{}')));
     }
   }, [dispatch]);
-  //  useEffect(() => {
-  //    if (localStorage.getItem('isAuthenticated')) {
-  //      dispatch(singIn(JSON.parse(localStorage.getItem('user') || '{}')));
-  //    }
-  //  }, [dispatch]);
 
   useEffect(() => {
     const userData = data;

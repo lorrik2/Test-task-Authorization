@@ -7,11 +7,7 @@ import { useStatusUser } from '../../../hooks/useStatusUser';
 
 function MainPage(): JSX.Element {
   const user = useSelector((store: RootState) => store.userState.user);
-  const [data, setData] = useState({});
   const status = useStatusUser();
-  useEffect(() => {
-    if (status) setData(user);
-  }, [data, user, status]);
 
   return (
     <div className="main-article">

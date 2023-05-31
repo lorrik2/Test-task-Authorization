@@ -11,7 +11,6 @@ export function useLocalStorage(key: any, initialValue: any): any {
   useEffect(() => {
     const item = JSON.stringify(value);
     window.localStorage.setItem(key, item);
-    // localStorage.removeItem('user');
     // eslint-disable-next-line
   }, [value]);
 

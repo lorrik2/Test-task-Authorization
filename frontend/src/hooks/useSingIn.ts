@@ -7,10 +7,10 @@ function useSingIn(initialValue: string): any {
   const handleChange = (type: string, e: React.ChangeEvent<HTMLInputElement>): void => {
     switch (type) {
       case 'login':
-        setLogin(e.target.value);
+        setLogin(e.target.value.trim());
         break;
       case 'password':
-        setPassword(e.target.value);
+        setPassword(e.target.value.trim());
         break;
     }
   };

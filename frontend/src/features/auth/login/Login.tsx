@@ -15,32 +15,37 @@ function Login(): JSX.Element {
   const { users } = useSelector((store: RootState) => store.userState);
   const dispatch = useAppDispatch();
 
-  //  function setCartData(value: any): boolean {
-  //    localStorage.setItem('user', JSON.stringify(value));
-  //    return false;
-  //  }
-  //  console.log(userAuth);
+  // function setCartData(value: any): boolean {
+  //   localStorage.setItem('user', JSON.stringify(value));
+  //   return false;
+  // }
+  // console.log(userAuth);
 
   const navigate = useNavigate();
 
   const onHandleSubmitFormIn = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const validateSingIn = users.filter((el) => el.login === login && el.password === password);
-    if (validateSingIn.length > 0) {
+
+    if (validateSingIn.length === 1) {
       setError('');
       setUserAuth(validateSingIn[0]);
       setStatusAuth(true);
-      navigate('/profile');
     } else {
       setError('Имя пользователя или пароль введены не верно');
     }
   };
 
   useEffect(() => {
+    console.log(userAuth, '|-');
+    console.log(statusAuth, '|-');
     localStorage.setItem('user', JSON.stringify(userAuth));
     localStorage.setItem('isAuthenticated', JSON.stringify(statusAuth));
     dispatch(singIn(userAuth));
-  }, [userAuth, statusAuth, dispatch]);
+    if (statusAuth) {
+      navigate('/profile');
+    }
+  }, [userAuth, statusAuth]);
 
   return (
     <section className="log__form">
@@ -66,6 +71,7 @@ function Login(): JSX.Element {
                 id="password"
                 type="password"
                 className="validate"
+                autoComplete="none"
                 value={password}
                 onChange={(e) => handleChange('password', e)}
               />

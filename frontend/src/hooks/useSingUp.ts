@@ -9,16 +9,16 @@ function useSingUp(initialValue: string): any {
   const handleChange = (type: string, e: React.ChangeEvent<HTMLInputElement>): void => {
     switch (type) {
       case 'name':
-        setName(e.target.value);
+        setName(e.target.value.trim());
         break;
       case 'login':
-        setLogin(e.target.value);
+        setLogin(e.target.value.trim());
         break;
       case 'password':
-        setPassword(e.target.value);
+        setPassword(e.target.value.trim());
         break;
       case 'secondPassword':
-        setSecondPassword(e.target.value);
+        setSecondPassword(e.target.value.trim());
         break;
     }
   };
